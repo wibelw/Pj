@@ -19,10 +19,11 @@ namespace Inversion.Entidades
             double beneficio = 0;
             foreach (var c in Compras)
             {
-                beneficio += c.NumCompra * (PrecioActual - c.PrecioCompra);
+                beneficio += c.CalcularBeneficio(PrecioActual);
             }
             return beneficio;
         }
         
+
     }
 }
