@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inversion.Entidades", "Inversion.Entidades\Inversion.Entidades.csproj", "{A21FCD7F-0689-4723-BF88-200B1719CD18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversion.Entidades.Test", "Inversion.Entidades.Test\Inversion.Entidades.Test.csproj", "{F340A742-AAFC-46C6-B163-A4FE40F17171}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A21FCD7F-0689-4723-BF88-200B1719CD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21FCD7F-0689-4723-BF88-200B1719CD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21FCD7F-0689-4723-BF88-200B1719CD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21FCD7F-0689-4723-BF88-200B1719CD18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F340A742-AAFC-46C6-B163-A4FE40F17171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F340A742-AAFC-46C6-B163-A4FE40F17171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F340A742-AAFC-46C6-B163-A4FE40F17171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F340A742-AAFC-46C6-B163-A4FE40F17171}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8225286-E203-43D9-B760-1C44C47D37BB}
+	EndGlobalSection
+EndGlobal
