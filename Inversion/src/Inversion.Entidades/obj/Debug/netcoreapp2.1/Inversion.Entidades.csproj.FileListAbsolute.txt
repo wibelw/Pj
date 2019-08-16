@@ -7,3 +7,5 @@ C:\MiGitHub\Proyectos\Inversion\src\Inversion.Entidades\obj\Debug\netcoreapp2.1\
 C:\MiGitHub\Proyectos\Inversion\src\Inversion.Entidades\obj\Debug\netcoreapp2.1\Inversion.Entidades.dll
 C:\MiGitHub\Proyectos\Inversion\src\Inversion.Entidades\obj\Debug\netcoreapp2.1\Inversion.Entidades.pdb
 C:\MiGitHub\Proyectos\Inversion\src\Inversion.Entidades\obj\Debug\netcoreapp2.1\Inversion.Entidades.csprojAssemblyReference.cache
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Entidades\bin\Debug\netcoreapp2.1\Inversion.Entidades.runtimeconfig.json
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Entidades\bin\Debug\netcoreapp2.1\Inversion.Entidades.runtimeconfig.dev.json
