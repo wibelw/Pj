@@ -16,21 +16,11 @@ namespace Inversion.Entidades
         public double SaldoDisponible => Fondos - MargenTotal + BeneficioTotal;
 
         [EpplusCol(Order = 3)]
-        public double MargenTotal
-        {
-            get
-            {
-                return Valores.Sum(c => c.MargenTotal);
-            }
-        }
+        public double MargenTotal => Valores.Sum(c => c.MargenTotal);
+
         [EpplusCol(Order = 4)]
-        public double BeneficioTotal
-        {
-            get
-            {
-                return Valores.Sum(c => c.BeneficioTotal);
-            }
-        }
+        public double BeneficioTotal => Valores.Sum(c => c.BeneficioTotal);
+
 
         public Cartera()
         {

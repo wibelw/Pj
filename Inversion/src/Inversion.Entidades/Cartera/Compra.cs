@@ -24,16 +24,11 @@ namespace Inversion.Entidades
         public double NumCompra { get; set; }
 
         [EpplusCol(Order = 3)]
-        public double Margen {
-            get { return NumCompra * carteraValor.PrecioActual * carteraValor.Margen/100; }
-        }
-
+        public double Margen => NumCompra * carteraValor.PrecioActual * carteraValor.Margen / 100;
+     
         [EpplusCol(Order = 4)]
-        public double Beneficio
-        {
-            get { return NumCompra * (carteraValor.PrecioActual - PrecioCompra); }
-        }
-
+        public double Beneficio => NumCompra * (carteraValor.PrecioActual - PrecioCompra);
+     
         public int CompareTo(Compra other) { return PrecioCompra.CompareTo(other.PrecioCompra); }
 
         public override string ToString()

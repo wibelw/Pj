@@ -17,45 +17,19 @@ namespace Inversion.Entidades
         public double PrecioActual { get; set; }
 
         [EpplusCol(Order = 3)]
-        public double PrecioCompraMedio
-        {
-            get
-            {
-                return Compras.Sum(c => c.PrecioCompra * c.NumCompra) / TotalNumCompra;
-            }
-        }
+        public double PrecioCompraMedio => Compras.Sum(c => c.PrecioCompra * c.NumCompra) / TotalNumCompra;
+
         [EpplusCol(Order = 4)]
         public double Margen { get; set; }
 
         [EpplusCol(Order = 5)]
-        public double MargenTotal
-        {
-            get
-            {
-                return Compras.Sum(c => c.Margen);
-            }
-        }
-
-        [EpplusCol(Order = 6)]
-        public double BeneficioTotal
-        {
-            get {
-                return Compras.Sum(c => c.Beneficio);
-            }
-        }
-
+        public double MargenTotal=> Compras.Sum(c => c.Margen);
  
+        [EpplusCol(Order = 6)]
+        public double BeneficioTotal => Compras.Sum(c => c.Beneficio);
 
         [EpplusCol(Order = 7)]
-        public double TotalNumCompra
-        {
-            get
-            {
-                return Compras.Sum(c => c.NumCompra);
-            }
-        }
-
-
+        public double TotalNumCompra => Compras.Sum(c => c.NumCompra);
 
         public  List<Compra> Compras { get; }
 
@@ -65,8 +39,7 @@ namespace Inversion.Entidades
             cartera.Valores.Add(this);
             Compras = new List<Compra>();
         }
-
-     
+    
         public void ComprasToExcel(ExcelPackage pack)
         {
             UtilExcel.ListToExcel(pack,$"{CodValor} Compras", Compras);
