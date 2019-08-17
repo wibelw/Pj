@@ -1,0 +1,9 @@
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\bin\Debug\netcoreapp2.1\Inversion.Api.IG.Client.deps.json
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\bin\Debug\netcoreapp2.1\Inversion.Api.IG.Client.dll
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\bin\Debug\netcoreapp2.1\Inversion.Api.IG.Client.pdb
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\obj\Debug\netcoreapp2.1\Inversion.Api.IG.Client.csprojAssemblyReference.cache
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\obj\Debug\netcoreapp2.1\Inversion.Api.IG.Client.csproj.CoreCompileInputs.cache
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\obj\Debug\netcoreapp2.1\Inversion.Api.IG.Client.AssemblyInfoInputs.cache
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\obj\Debug\netcoreapp2.1\Inversion.Api.IG.Client.AssemblyInfo.cs
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\obj\Debug\netcoreapp2.1\Inversion.Api.IG.Client.dll
+C:\MiGitHub\Proyectos\Inversion\src\Inversion.Api.IG.Client\obj\Debug\netcoreapp2.1\Inversion.Api.IG.Client.pdb
