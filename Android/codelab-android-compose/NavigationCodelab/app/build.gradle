@@ -96,7 +96,9 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended"
     implementation "androidx.activity:activity-compose:1.9.0"
     debugImplementation "androidx.compose.ui:ui-tooling"
-
+    implementation "androidx.navigation:navigation-compose:{latest_version}"
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     // Testing dependencies
     androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:3.5.1"
