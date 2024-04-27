@@ -39,6 +39,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
+import com.example.compose.rally.data.MongoDBRepository
 import com.example.compose.rally.ui.accounts.AccountsScreen
 import com.example.compose.rally.ui.accounts.SingleAccountScreen
 import com.example.compose.rally.ui.bills.BillsScreen
@@ -61,7 +62,6 @@ class RallyActivity : ComponentActivity() {
 @Composable
 fun RallyApp() {
     RallyTheme {
-
         val navController = rememberNavController()
         val currentBackStack by navController.currentBackStackEntryAsState()
 
@@ -85,6 +85,7 @@ fun RallyApp() {
                 composable(route = Overview.route) {
                     OverviewScreen(
                         onClickSeeAllAccounts = {
+
                             navController.navigateSingleTopTo(Accounts.route)
                         },
                         onClickSeeAllBills = {
