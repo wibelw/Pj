@@ -10,6 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.compartirgastos.screen.auth.AuthenticationScreen
 import com.example.compartirgastos.screen.auth.AuthenticationViewModel
+import com.example.compartirgastos.screen.gastos.GastosScreen
+import com.example.compartirgastos.screen.gastos.GastosViewModel
 import com.example.compartirgastos.screen.home.HomeScreen
 import com.example.compartirgastos.screen.home.HomeViewModel
 import com.stevdzasan.messagebar.rememberMessageBarState
@@ -94,3 +96,23 @@ fun NavGraphBuilder.homeRoute() {
         )
     }
 }
+
+/*
+fun NavGraphBuilder.gastosRoute() {
+    composable(route = Screen.Home.route) {
+        val viewModel: GastosViewModel = viewModel()
+        val data by viewModel.data
+        GastosScreen(
+            data = data,
+            filtered = viewModel.filtered.value,
+            name = viewModel.name.value,
+            objectId = viewModel.objectId.value,
+            onNameChanged = viewModel::updateName,
+            onObjectIdChanged = viewModel::updateObjectId,
+            onInsertClicked = viewModel::insertGasto,
+            onUpdateClicked = viewModel::updateGasto,
+            onDeleteClicked = viewModel::deleteGasto,
+            onFilterClicked = viewModel::filterGasto
+        )
+    }
+}*/

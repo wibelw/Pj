@@ -2,6 +2,7 @@ package com.example.compartirgastos.data
 
 import android.util.Log
 import com.example.compartirgastos.model.Address
+import com.example.compartirgastos.model.Gasto
 import com.example.compartirgastos.model.Person
 import com.example.compartirgastos.model.Pet
 import com.example.compartirgastos.util.Constants.APP_ID
@@ -31,6 +32,7 @@ object MongoDB : MongoRepository {
             )
                 .initialSubscriptions { sub ->
                     add(query = sub.query<Person>(query = "owner_id == $0", user.id))
+                 //   add(query = sub.query<Gasto>(query = "owner_id == $0", user.id))
                 }
                 .log(LogLevel.ALL)
                 .build()
@@ -46,6 +48,9 @@ object MongoDB : MongoRepository {
         return realm.query<Person>(query = "name CONTAINS[c] $0", name)
             .asFlow().map { it.list }
     }
+
+
+
 
     override suspend fun insertPerson(person: Person) {
         if (user != null) {
@@ -84,5 +89,52 @@ object MongoDB : MongoRepository {
                 Log.d("MongoRepository", "${e.message}")
             }
         }
+    }
+
+    override fun getGastos(): Flow<List<Gasto>> {
+        return realm.query<Gasto>().asFlow().map { it.list }
+    }
+
+    override suspend fun insertGasto(gasto: Gasto) {
+        if (user != null) {
+            realm.write {
+                try {
+                    copyToRealm(gasto.apply { owner_id = user.id })
+                } catch (e: Exception) {
+                    Log.d("MongoRepository", e.message.toString())
+                }
+            }
+        }
+    }
+    override suspend fun deleteGasto(id: ObjectId) {
+        realm.write {
+            try {
+                val gasto = query<Gasto>(query = "_id == $0", id)
+                    .first()
+                    .find()
+                gasto?.let { delete(it) }
+            } catch (e: Exception) {
+                Log.d("MongoRepository", "${e.message}")
+            }
+        }
+    }
+
+    override suspend fun updateGasto(gasto: Gasto) {
+        realm.write {
+            val queriedPerson =
+                query<Gasto>(query = "_id == $0", gasto._id)
+                    .first()
+                    .find()
+            if (queriedPerson != null) {
+                queriedPerson.name = gasto.name
+            } else {
+                Log.d("MongoRepository", "Queried Person does not exist.")
+            }
+        }
+    }
+
+    override fun filterGasto(name: String): Flow<List<Gasto>> {
+        return realm.query<Gasto>(query = "name CONTAINS[c] $0", name)
+            .asFlow().map { it.list }
     }
 }

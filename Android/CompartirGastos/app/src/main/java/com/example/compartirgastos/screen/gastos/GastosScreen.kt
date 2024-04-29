@@ -1,6 +1,7 @@
-package com.example.compartirgastos.screen.home
+package com.example.compartirgastos.screen.gastos
 
 import android.annotation.SuppressLint
+import androidx.annotation.StringRes
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,24 +10,26 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.compartirgastos.R
 import com.example.compartirgastos.model.Person
 import io.realm.kotlin.types.RealmInstant
 import java.text.SimpleDateFormat
-import java.time.Instant
 import java.util.*
+
+import androidx.compose.ui.res.stringResource
+import com.example.compartirgastos.model.Gasto
+import java.time.Instant
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen(
-    data: List<Person>,
+fun GastosScreen(
+    data: List<Gasto>,
     filtered: Boolean,
     name: String,
     objectId: String,
@@ -39,7 +42,7 @@ fun HomeScreen(
 ) {
     Scaffold(
         content = {
-            HomeContent(
+            GastosContent(
                 data = data,
                 filtered = filtered,
                 name = name,
@@ -56,8 +59,8 @@ fun HomeScreen(
 }
 
 @Composable
-fun HomeContent(
-    data: List<Person>,
+fun GastosContent(
+    data: List<Gasto>,
     filtered: Boolean,
     name: String,
     objectId: String,
@@ -90,6 +93,17 @@ fun HomeContent(
                     onValueChange = onNameChanged,
                     placeholder = { Text(text = "Name") }
                 )
+                Spacer(modifier = Modifier.width(12.dp))
+
+            }
+            Row{
+                CampoTexto(text=R.string.nom_pagador)
+            }
+            Row{
+                CampoTexto(text=R.string.des_gasto)
+            }
+            Row{
+                CampoTexto(text=R.string.text_importe)
             }
             Spacer(modifier = Modifier.height(24.dp))
             Row(
@@ -118,7 +132,7 @@ fun HomeContent(
         Spacer(modifier = Modifier.height(24.dp))
         LazyColumn(modifier = Modifier.weight(1f)) {
             items(items = data, key = { it._id.toHexString() }) {
-                PersonView(
+                GastoView(
                     id = it._id.toHexString(),
                     name = it.name,
                     timestamp = it.timestamp
@@ -129,7 +143,28 @@ fun HomeContent(
 }
 
 @Composable
-fun PersonView(id: String, name: String, timestamp: RealmInstant) {
+fun CampoTexto(
+    modifier: Modifier = Modifier,
+    @StringRes text:Int,
+) {
+    TextField(
+        value="",
+        onValueChange={},
+        colors=TextFieldDefaults.colors(
+            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            focusedContainerColor = MaterialTheme.colorScheme.surface
+        ),
+        placeholder = {
+            Text(stringResource(text))
+        },
+        modifier= modifier
+            .fillMaxWidth()
+            .heightIn(min = 56.dp)
+    )
+}
+
+@Composable
+fun GastoView(id: String, name: String, timestamp: RealmInstant) {
     Row(modifier = Modifier.padding(bottom = 24.dp)) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
@@ -166,12 +201,12 @@ fun PersonView(id: String, name: String, timestamp: RealmInstant) {
 }
 @Preview
 @Composable
-fun HomeScreenPreview(){
-    val p1: Person=Person()
+fun GastosScreenPreview(){
+    val p1: Gasto=Gasto()
     p1.name="Laura"
     val list=listOf(p1)
     val name="a"
-    HomeScreen(
+    GastosScreen(
         data = list,
         filtered = false,
         name = name,
@@ -194,3 +229,4 @@ fun RealmInstant.toInstant(): Instant {
         Instant.ofEpochSecond(sec - 1, 1_000_000 + nano.toLong())
     }
 }
+

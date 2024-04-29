@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CompartirGastos</string>
+    <string name="des_gasto">Descripción del gasto</string>
+    <string name="nom_pagador"> ¿ Quién paga ?</string>
+    <string name="text_importe"> Importe</string>
 </resources>
